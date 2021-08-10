@@ -12,4 +12,4 @@ if __name__ == '__main__':
     # print(res.json())
 
     exporter = NotionMdExporter()
-    print(exporter.export('0017d9d63e434978a35f958ac8b2f8bc'))
+    print(exporter.export('0017d9d63e434978a35f958ac8b2f8bc', './test.md'))
