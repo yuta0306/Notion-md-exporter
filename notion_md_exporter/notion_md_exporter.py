@@ -94,6 +94,7 @@ class NotionMdExporter:
                     title = self._get_title(page_id=_id)
                     content.append(f'# {title}\n\n')
                     self._generate_block(_id, content=content, depth=0)
+                    content.append('\n\n---\n\n')
                 else:
                     self._generate_block(_id, content=content, depth=depth+1)
             
