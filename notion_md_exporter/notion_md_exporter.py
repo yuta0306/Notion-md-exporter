@@ -9,6 +9,7 @@ class NotionMdExporter:
         self.validated = False
 
     def export(self, page_id: str, export_path: str) -> NoReturn:
+        page_id = self._parse_id(page_id=page_id)
         self.validated = self._validation(page_id)
         if not self.validated:
             raise ValueError('Could not find the page')
@@ -16,6 +17,12 @@ class NotionMdExporter:
         self._create_file(page_id=page_id, export_path=export_path)
 
         return
+
+    def _parse_id(self, page_id: str) -> str:
+        if 'https://www.notion.so/' in page_id:
+            page_id = re.sub(r'https://www.notion.so/', '', page_id)
+
+        return page_id
 
     def _validation(self, _id: str) -> bool:
         status_code, res = self.client.get_page(_id)
