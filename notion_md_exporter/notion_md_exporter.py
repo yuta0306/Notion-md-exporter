@@ -59,7 +59,7 @@ class NotionMdExporter:
         elif _type == 'heading_3':
             tag = '### '
         elif _type == 'to_do':
-            tag = '- [] '
+            tag = '- [ ] '
 
         return tag
 
@@ -79,7 +79,7 @@ class NotionMdExporter:
                 if parent_type == 'to_do': # checkbox
                     checked = block[parent_type]['checked']
                     if checked:
-                        tag = re.sub('\[\]', '[x]', tag)
+                        tag = re.sub('\[\s\]', '[x]', tag)
                 plane_text = text_info[_type]['content']
                 link = text_info[_type]['link']
                 annotation = text_info['annotations']
