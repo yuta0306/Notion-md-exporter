@@ -35,7 +35,6 @@ class NotionMdExporter:
         if not self.validated:
             self._validation(page_id)
         _, res = self.client.get_blocks(page_id)
-        print(res)
         _type = res['type']
         title = res[_type]['title']
 
@@ -74,7 +73,6 @@ class NotionMdExporter:
             parent_type = block.get('type')
             tag = self._get_tag(parent_type)
             indent = '&nbsp;' * (depth * 4)
-            print(block)
             i = -1
             for i, text_info in enumerate(block[parent_type].get('text', [])):
                 _type = text_info['type']
