@@ -15,7 +15,7 @@ class NotionClient:
 
     def get_page(self, page_id: str) -> Tuple[int, Dict[str, Any]]:
         headers = {
-            'Notion-Version': '2021-05-13',
+            'Notion-Version': '2021-07-27',
             'Authorization': f'Bearer {self.key}',
         }
         res = requests.get(f'https://api.notion.com/v1/pages/{page_id}',
@@ -24,7 +24,7 @@ class NotionClient:
 
     def get_blocks(self, block_id: str) -> Tuple[int, Dict[str, Any]]:
         headers = {
-            'Notion-Version': '2021-05-13',
+            'Notion-Version': '2021-07-27',
             'Authorization': f'Bearer {self.key}',
         }
         res = requests.get(f'https://api.notion.com/v1/blocks/{block_id}',
@@ -33,7 +33,7 @@ class NotionClient:
 
     def get_child_blocks(self, block_id: str, start_cursor: Optional[str]=None) -> Tuple[int, Dict[str, Any]]:
         headers = {
-            'Notion-Version': '2021-05-13',
+            'Notion-Version': '2021-07-27',
             'Authorization': f'Bearer {self.key}',
         }
         params = {
